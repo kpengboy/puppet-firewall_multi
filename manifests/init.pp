@@ -1,5 +1,9 @@
 define firewall_multi (
   $ensure                = undef,
+  $require               = undef,
+  $subscribe             = undef,
+  $before                = undef,
+  $notify                = undef,
   $provider              = undef,
   $action                      = undef,
   $burst                       = undef,
@@ -125,6 +129,10 @@ define firewall_multi (
 
   create_resources(firewall, firewall_multi($name, {
     ensure                => $ensure,
+    require               => $require,
+    subscribe             => $subscribe,
+    before                => $before,
+    notify                => $notify,
     provider              => $provider,
     action                      => $action,
     burst                       => $burst,
